@@ -2,74 +2,34 @@
 
 <html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
-        <title>Trivia!</title>
-        <script>
-            // TODO: Add code to check answers to questions
-                function checkMultiChoice(event) {
-
-                // Get the element which triggered the event
-                let button = event.target;
-
-                // Check if the element's inner HTML matches expected answer
-                if (button.innerHTML == '2001') {
-                    button.style.backgroundColor = 'Green';
-                    button.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
-                }
-                else {
-                    button.style.backgroundColor = 'Red';
-                    button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
-                }
-            }
-
-            function checkFreeResponse(event) {
-
-                // Get the element which triggered the event
-                let button = event.target;
-
-                // Get the input element corresponding to the button
-                let input = button.parentElement.querySelector('input');
-
-                // Check for correct answer
-                if (input.value === 'Bafana Bafana') {
-                    input.style.backgroundColor = 'Green';
-                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
-                }
-                else {
-                    input.style.backgroundColor = 'Red';
-                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
-                }
-            }
-        </script>
+        <title>RSA History Quiz</title>
+        <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="header">
-            <h1>Trivia!</h1>
-        </div>
+        <main class="card">
+            <header class="card-header">
+                <h1>The Road to 1994</h1>
+                <span class="progress-label" id="progress-label"></span>
+            </header>
 
-        <div class="container">
-            <div class="section">
-                <h2>Part 1: Multiple Choice </h2>
-                <hr>
-                <!-- TODO: Add multiple choice question here -->
-                 <h3>What year did the .com bubble burst?</h3>
-                 <button onclick="checkMultiChoice(event)">1999</button>
-                 <button onclick="checkMultiChoice(event)">2000</button>
-                 <button onclick="checkMultiChoice(event)">2001</button>
-                 <button onclick="checkMultiChoice(event)">2008</button>
-                 <p class="feedback"></p>
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuenow="1" aria-label="Quiz progress" id="progress">
+                <div class="progress-fill" id="progress-fill"></div>
             </div>
 
-            <div class="section">
-                <h2>Part 2: Free Response</h2>
-                <hr>
-                <!-- TODO: Add free response question here -->
-                <h3>What is the other name for the South African football team?</h3>
-                <input type="text"></input>
-                <button onclick="checkFreeResponse(event)">Check Answer</button>
-                <p class="feedback"></p>
-            </div>
-        </div>
+            <!-- Questions are built by script.js from the list at the top of that file -->
+            <section class="question" id="question-area"></section>
+
+            <section class="results" id="results" hidden>
+                <p class="score" id="score"></p>
+                <p class="score-note" id="score-note"></p>
+                <button class="restart" type="button">Try again</button>
+            </section>
+        </main>
     </body>
 </html>

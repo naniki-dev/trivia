@@ -1,41 +1,42 @@
-# Trivia Quiz
+# The Road to 1994: A South African History Quiz
 
-A simple interactive trivia webpage built with **HTML, CSS, and JavaScript**. The project allows users to answer both multiple-choice and free-response trivia questions, with immediate visual feedback indicating whether their answers are correct or incorrect.
+For this project I went back to my History teacher roots and built an interactive history quiz built with **HTML, CSS, and JavaScript**. It covers the key events on South Africa's road to democracy, from the 1948 election to the first democratic election on 27 April 1994. Players answer multiple-choice and free-response questions, get instant feedback, and read a short "teacher's note" after every answer that explains why the event mattered.
 
 ## Features
 
-* Multiple-choice trivia question with several answer options
-* Instant feedback for selected answers
-* Correct answers are highlighted in **green**
-* Incorrect answers are highlighted in **red**
-* Free-response trivia question using a text input
-* Case-insensitive answer validation
-* Immediate feedback for free-response answers
-* Responsive and simple user interface
+* 11 questions in chronological order, mixing multiple-choice and free-response
+* Instant feedback after every answer, shown with colour **and** an icon (✓ / ✗)
+* The correct answer is revealed when a player gets a question wrong
+* A **teacher's note** after each question explaining the history behind the answer
+* Free-response answers ignore capitalisation and extra spaces, and accept alternative spellings
+* Progress bar and "Question X of Y" label
+* Final score screen with a **Try again** button
+* Answers lock after one attempt, and Enter submits free-response answers
+* Responsive card layout, with the answer buttons stacking on small screens
+* Keyboard-friendly, with visible focus states and reduced-motion support
 
 ## Technologies Used
 
-* **HTML** — Structure and content of the webpage
-* **CSS** — Styling and visual feedback
-* **JavaScript** — Answer validation and interactive behaviour
+* **HTML**: Page structure
+* **CSS**: Card layout, feedback states, responsive design
+* **JavaScript**: Builds each question from data, checks answers, tracks the score
 
 ## How It Works
 
-### Part 1: Multiple Choice
+All of the questions live in a single `questions` array at the top of `script.js`. The page builds itself from that list, so adding or changing a question never requires touching the HTML.
 
-Users are presented with a trivia question and several possible answers. When an answer is selected, JavaScript checks whether the selected option is correct.
+### Multiple choice
 
-* Correct answer → button turns green and displays **"Correct!"**
-* Incorrect answer → button turns red and displays **"Incorrect"**
+The player clicks an option. The chosen answer turns green if it is correct, or red if it is wrong (and the right answer is highlighted in green). All options are then disabled.
 
-### Part 2: Free Response
+### Free response
 
-Users can type their answer into a text field and submit it using the confirmation button.
+The player types an answer and presses **Check answer** (or Enter). The input is compared with the accepted answers after trimming spaces and ignoring capitalisation. An empty answer asks the player to type something first.
 
-JavaScript compares the user's response with the expected answer and provides visual feedback.
+### Teacher's note and results
 
-* Correct answer → input field turns green and displays **"Correct!"**
-* Incorrect answer → input field turns red and displays **"Incorrect"**
+After each answer, a short note explains the history behind it. After the last question, the score screen shows the final result with an option to try again.
+
 
 ## Project Structure
 
@@ -50,20 +51,20 @@ trivia/
 
 This project gave me practical experience with:
 
-* Structuring webpages using HTML
-* Styling elements with CSS
-* Using JavaScript to respond to user interactions
-* Adding event listeners to buttons
-* Validating user input
-* Manipulating HTML elements and their styles using JavaScript
-* Providing immediate feedback based on user actions
+* Structuring and styling a page with semantic HTML and CSS (custom properties, grid, flexbox, responsive layouts)
+* Separating data from presentation by keeping the questions in an array and generating the page from it
+* Creating and updating DOM elements with JavaScript instead of hard-coding them in HTML
+* Handling events (clicks and the Enter key) and managing quiz state such as the score and current question
+* Normalising user input so answers are checked fairly
+* Giving clear feedback, including accessibility basics like focus states, `aria-live` messages and not relying on colour alone
+* Turning subject knowledge from my teaching background into content that teaches as well as tests
 
 ## Running the Project
 
 Clone the repository and open `index.html` in a web browser.
 
-No external dependencies or installation are required.
+No installation or dependencies are required. An internet connection is only needed to load the Google Fonts (the page falls back to system fonts without one).
 
 ## Project Context
 
-This project was completed as part of **CS50's Introduction to Computer Science**, specifically Problem Set 8: Trivia.
+This project started as **CS50's Introduction to Computer Science**, Problem Set 8: Trivia, and I then redesigned it with a card-based layout, a progress bar, a score screen and a South African history theme.

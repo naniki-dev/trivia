@@ -1,17 +1,22 @@
 :root {
-    --blue: #477bff;
-    --blue-dark: #2f5fe8;
-    --ink: #1b1f2a;
-    --muted: #5b6270;
-    --line: #dfe3ea;
-    --page: #f4f5f8;
-    --card: #ffffff;
-    --good: #17653a;
-    --good-bg: #e8f6ee;
-    --good-line: #2e9e5b;
-    --bad: #8f2323;
-    --bad-bg: #fdecec;
-    --bad-line: #d64545;
+    --green: #183C2B;
+    --green-dark: #0F2A1D;
+    --gold: #D7A62C;
+    --brick: #9E3028;
+    --ivory: #F5F0E6;
+    --ink: #1E2620;
+    --muted: #5C5A4E;
+    --line: #DDD3BC;
+    --track: #E8E0CC;
+    --page: #F5F0E6;
+    --card: #FFFDF8;
+    --tint: #FBF4DF;
+    --good: #183C2B;
+    --good-bg: #E3ECE5;
+    --good-line: #2F6B4A;
+    --bad: #7F2620;
+    --bad-bg: #F7E4E1;
+    --bad-line: #9E3028;
 }
 
 * {
@@ -21,7 +26,7 @@
 body {
     background-color: var(--page);
     color: var(--ink);
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'General Sans', system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
@@ -35,6 +40,7 @@ body {
     border-radius: 16px;
     margin: 0 auto;
     max-width: 640px;
+    border-top: 4px solid var(--gold);
     padding: 1.5rem 1.75rem 1.75rem;
 }
 
@@ -48,8 +54,8 @@ body {
 }
 
 h1 {
-    color: var(--blue-dark);
-    font-family: 'Montserrat', sans-serif;
+    color: var(--green);
+    font-family: 'General Sans', system-ui, sans-serif;
     font-size: 1.75rem;
     font-weight: 500;
     margin: 0;
@@ -61,7 +67,7 @@ h1 {
 }
 
 .progress {
-    background-color: #e8ebf2;
+    background-color: var(--track);
     border-radius: 3px;
     height: 6px;
     margin-bottom: 1.75rem;
@@ -69,7 +75,7 @@ h1 {
 }
 
 .progress-fill {
-    background-color: var(--blue);
+    background-color: var(--gold);
     border-radius: 3px;
     height: 100%;
     transition: width 0.3s ease;
@@ -103,8 +109,8 @@ h2 {
 }
 
 .option:hover:not(:disabled) {
-    border-color: var(--blue);
-    background-color: #f3f6ff;
+    border-color: var(--gold);
+    background-color: var(--tint);
     transform: translateY(-1px);
 }
 
@@ -152,7 +158,7 @@ input[type="text"] {
 }
 
 input[type="text"]:hover:not(:disabled) {
-    border-color: var(--blue);
+    border-color: var(--green);
 }
 
 input[type="text"].correct {
@@ -170,8 +176,8 @@ input[type="text"].incorrect {
 .check,
 .next,
 .restart {
-    background-color: var(--blue);
-    border: 1px solid var(--blue);
+    background-color: var(--green);
+    border: 1px solid var(--green);
     border-radius: 12px;
     color: #fff;
     cursor: pointer;
@@ -185,7 +191,7 @@ input[type="text"].incorrect {
 .check:hover,
 .next:hover,
 .restart:hover {
-    background-color: var(--blue-dark);
+    background-color: var(--green-dark);
 }
 
 .check:active,
@@ -195,8 +201,8 @@ input[type="text"].incorrect {
 }
 
 .check:disabled {
-    background-color: #b9c7f5;
-    border-color: #b9c7f5;
+    background-color: #9FB3A6;
+    border-color: #9FB3A6;
     cursor: default;
 }
 
@@ -220,8 +226,8 @@ input[type="text"].incorrect {
 }
 
 .explanation {
-    background-color: #f3f6ff;
-    border-left: 4px solid var(--blue);
+    background-color: var(--tint);
+    border-left: 4px solid var(--gold);
     border-radius: 0 10px 10px 0;
     color: var(--ink);
     font-size: 0.95rem;
@@ -230,7 +236,7 @@ input[type="text"].incorrect {
 }
 
 .explanation strong {
-    color: var(--blue-dark);
+    color: var(--green);
 }
 
 .results {
@@ -239,7 +245,7 @@ input[type="text"].incorrect {
 }
 
 .score {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'General Sans', system-ui, sans-serif;
     font-size: 2.5rem;
     font-weight: 500;
     margin: 0;
@@ -252,7 +258,7 @@ input[type="text"].incorrect {
 
 button:focus-visible,
 input:focus-visible {
-    outline: 3px solid rgba(71, 123, 255, 0.45);
+    outline: 3px solid rgba(24, 60, 43, 0.6);
     outline-offset: 2px;
 }
 
